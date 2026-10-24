@@ -45,3 +45,9 @@ README/许可证/素材来源/运行依赖/更新说明：...
 | 同步 | 原型 app.js 与 public/app.js 逐字一致（ui-parity 47/47 过）；0.2.1 已装机 |
 | 数据完整性核查 | bootstrap 键集与原型 demo-data **38=38 逐键一致**、嵌套值 parity deepStrictEqual 全等；DB 各表行数正常（profile 2 / rai 2 / lt4 4 / us 3 / metric 47）；demo2 妊娠线数据完整（fertility: state/cooldown/pregCards/pregNote/postpartum）。此前 `?profile=demo2` 参数形状误读导致的"数据缺失"排除 |
 | 边界说明 | **资料导入（docs·library）UI 仍为静态示意**——MinerU 服务端六部件与设置接口已就绪且 API 实测，页面导入交互完整接线属 M5 后迭代（与 MPM/GBM 同边界，已在遗留清单） |
+
+## V2/V3 真机走查（2026-10-25，用户确认）
+
+- 用户原话"确认ok"（对 V2/V3 整体确认）；**V2/V3 判定：通过**，进 M7 发布。
+- 过程缺陷均已在 0.2.1 修复并复验：一图秀黑块（SVG 根 class）、曲线平滑度（Fritsch-Carlson）、AI 按钮一键携带（thy:agent-draft）。
+- 如实记录：未逐项列明子项（切页/落盘重开），以整体确认为准；导入 UI 边界见上。
