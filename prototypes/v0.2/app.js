@@ -251,16 +251,31 @@ function domain() {
 }
 const inDomain = (d, t0, t1) => { const t = Date.parse(d); return t >= t0 && t <= t1; };
 const xOf = (t, t0, t1) => CX0 + (t - t0) / Math.max(1, t1 - t0) * (CX1 - CX0);
-function smoothPath(coords) { /* 单调三次（Hermite→Bezier），同族骨架实现 */
+function smoothPath(coords) { /* 单调三次 Hermite（Fritsch–Carlson）：过点、防过冲、采样间隔不均匀安全（THY 长程复查节奏 2 周–4 月混杂，Catmull-Rom 在密集点过冲出尖角——用户真机指认 2026-10-24） */
   if (!coords.length) return '';
   if (coords.length === 1) return `M ${coords[0].x} ${coords[0].y}`;
-  return coords.reduce((d, p, i) => {
-    if (!i) return `M ${p.x.toFixed(1)} ${p.y.toFixed(1)}`;
-    const prev = coords[i - 1], before = coords[i - 2] || prev, after = coords[i + 1] || p;
-    const c1x = prev.x + (p.x - before.x) / 6, c1y = prev.y + (p.y - before.y) / 6;
-    const c2x = p.x - (after.x - prev.x) / 6, c2y = p.y - (after.y - prev.y) / 6;
-    return `${d} C ${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`;
-  }, '');
+  const n = coords.length, dx = [], sl = [], m = new Array(n).fill(0);
+  for (let i = 0; i < n - 1; i++) {
+    dx[i] = coords[i + 1].x - coords[i].x;
+    sl[i] = dx[i] === 0 ? 0 : (coords[i + 1].y - coords[i].y) / dx[i];
+  }
+  m[0] = sl[0]; m[n - 1] = sl[n - 2];
+  for (let i = 1; i < n - 1; i++) {
+    if (sl[i - 1] * sl[i] <= 0) { m[i] = 0; continue; }        // 局部极值点：切线水平
+    const w1 = 2 * dx[i] + dx[i - 1], w2 = dx[i] + 2 * dx[i - 1];
+    m[i] = (w1 + w2) / (w1 / sl[i - 1] + w2 / sl[i]);           // 加权调和平均
+  }
+  for (let i = 0; i < n - 1; i++) {                             // Fritsch-Carlson 限幅：防区段过冲
+    if (sl[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / sl[i], b = m[i + 1] / sl[i], q = a * a + b * b;
+    if (q > 9) { const t = 3 / Math.sqrt(q); m[i] = t * a * sl[i]; m[i + 1] = t * b * sl[i]; }
+  }
+  let d = `M ${coords[0].x.toFixed(1)} ${coords[0].y.toFixed(1)}`;
+  for (let i = 0; i < n - 1; i++) {
+    const h = dx[i] / 3;
+    d += ` C ${(coords[i].x + h).toFixed(1)} ${(coords[i].y + m[i] * h).toFixed(1)}, ${(coords[i + 1].x - h).toFixed(1)} ${(coords[i + 1].y - m[i + 1] * h).toFixed(1)}, ${coords[i + 1].x.toFixed(1)} ${coords[i + 1].y.toFixed(1)}`;
+  }
+  return d;
 }
 function seriesFor(code, t0, t1) {
   const m = CATALOG[code];
