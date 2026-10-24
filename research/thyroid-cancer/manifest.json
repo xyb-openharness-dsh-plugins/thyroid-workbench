@@ -1,0 +1,49 @@
+{
+  "topic": "thyroid",
+  "year": "2026",
+  "snapshotDate": "2026-10-24",
+  "tool": "unified-trial-mcp @ /Users/qinxiaoqiang/Downloads/unified_search_trials/dist/src/cli/main.js",
+  "queries": [
+    {
+      "keyword": "甲状腺癌",
+      "note": "中文标准名"
+    },
+    {
+      "keyword": "分化型甲状腺癌",
+      "note": "DTC 主流型"
+    },
+    {
+      "keyword": "甲状腺肿瘤",
+      "note": "中文宽口径"
+    },
+    {
+      "keyword": "thyroid cancer",
+      "note": "英文标准名"
+    },
+    {
+      "keyword": "thyroid carcinoma",
+      "note": "英文正式名"
+    },
+    {
+      "keyword": "differentiated thyroid cancer",
+      "note": "DTC 英文"
+    }
+  ],
+  "perSourceLimit": 200,
+  "recordCount": 202,
+  "dbCount": 202,
+  "sourceStatusRows": 36,
+  "honesty": {
+    "offlineCorpora": "ChiCTR/CDE/CTV 离线语料仅胰腺癌覆盖；THY 只依赖在线通道终态，见 source_statuses 表",
+    "statusWording": "登记 ≠ 有效 ≠ 安全 ≠ 可入组；状态一律\"登记状态，未核实\"",
+    "mergeRule": "仅同一登记号（NCT/ChiCTR/CDE 等）合并，其余并排保留来源"
+  },
+  "files": {
+    "trials-2026.jsonl": {
+      "sha256": "ee46c8ce5fdaa13e7644ec83d44de5db0e15f192b9c8eb59c7e14b5d5716f619"
+    },
+    "thyroid_cancer_trials_2026.sqlite": {
+      "sha256": "4efb66e06777cb60778a8efc4f8bc545a464ce87aa8bf7af678d7ea15b2a4920"
+    }
+  }
+}
