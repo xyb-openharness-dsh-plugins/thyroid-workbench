@@ -11,7 +11,7 @@
 | M3 数据模型 | schema/0001 冻结（sha256 + 判读列断言） | ✅ 2026-10-24（G3 冻结：30 表内存实测 + 判读列断言 PASS · sha256 `962764d6…` · 提交 0139fe9） | **G3** |
 | M4 临床库 | 在线通道采集 2026 THY 试验 → research/thyroid-cancer/（manifest=jsonl=sqlite 四件套） | ✅ 2026-10-24（在线通道；离线语料无 THY 覆盖，如实声明） | — |
 | M5 开发版 | dsh 十一件 + 真客户端链路（cervical 底本）+ apiBase 定稿契约 + MinerU 六部件 + 检查链 + demo/seed-demo-sqlite | ✅ 2026-10-24（v0.2.0：check 全绿 47/47 单测 + audit 37/37；无头 64 页签×2 档案 0 违规；HVT X1–X4 过；probe:resp 80 组合 0 违规；check-pack tgz 占位=0。schema/0002 增量**待追认**） | V1 ✅（M6 装机未做，V2/V3 未验证） |
-| M6 装机 | 装入 dsh-desktop + 真机走查 + probe:install | ⏳（DEV-REQUIREMENTS §四：本轮明确未做） | — |
+| M6 装机 | 装入 dsh-desktop + 真机走查 + probe:install | 🔶 包级已装（0.2.0 四要素+占位=0+bundles 登记，cd0de07）；V2/V3 真机走查待用户（首用会话授权流程：先新建会话） | V2/V3 |
 | M7 发布 | tag/release + 经验回流 starter | ⏳ | — |
 
 ## 闸口签认留痕（2026-10-24 补记）
