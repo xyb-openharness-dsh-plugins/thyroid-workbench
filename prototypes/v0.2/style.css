@@ -197,7 +197,6 @@ small{font-size:11.5px;color:var(--muted)}
 .dash-cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:2px}
 .dash-cols .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .stack{display:grid;gap:14px;align-content:start}
-/* 特色状态卡：胸水最近事件 + mMRC 现分级（家族四点位特色位） */
 .duo-status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .duo-status .st{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;min-width:0}
 .duo-status .st span{display:block;font-size:10.5px;color:var(--muted)}
@@ -284,28 +283,7 @@ small{font-size:11.5px;color:var(--muted)}
 .cal-cell.pad{border-style:dashed;opacity:.5;background:#fbfcfd}
 .cal-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:9px;font-size:10.5px;color:var(--muted)}
 .cal-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--brand-soft);border:1px solid #bcd2e5;vertical-align:-1px;margin-right:5px}
-.rt-count{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px}
-.rt-count .big{font-size:22px;font-weight:600;letter-spacing:-.4px}
-.rt-count .big small{font-size:11.5px;font-weight:500;color:var(--muted);margin-left:4px}
 
-/* ---------- 胸水与呼吸 ---------- */
-.pleura-track{display:grid;gap:0;position:relative}
-.pleura-card{position:relative;display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;padding:11px 0}
-.pleura-card::before{content:"";position:absolute;left:9.5px;top:0;bottom:0;width:2px;background:var(--line)}
-.pleura-card:first-child::before{top:16px}
-.pleura-card:last-child::before{bottom:calc(100% - 22px)}
-.pleura-card .tl-dot{width:11px;height:11px;border-radius:50%;margin-top:5px;position:relative;z-index:1;background:#cdd9e2}
-.pleura-card.thoracentesis .tl-dot{background:var(--brand);border:2px solid var(--brand-soft)}
-.pleura-card.drain-tube .tl-dot{background:#6f93b5}
-.pleura-card.pleurodesis .tl-dot{background:var(--action)}
-.pleura-body{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0;display:flex;gap:12px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
-.pleura-body .pl-main{flex:1;min-width:220px}
-.pleura-body b{font-size:12.5px;display:block}
-.pleura-body .kv{font-size:11px;color:var(--ink-2);margin-top:3px;display:grid;gap:2px}
-.pleura-body .vol{text-align:right;flex:0 0 auto}
-.pleura-body .vol b{font-size:19px;letter-spacing:-.4px;color:var(--brand-deep)}
-.pleura-body .vol small{display:block;font-size:9.5px}
-.pleura-body .author-tag{font-size:9.5px;margin-top:4px}
 .mmrc-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;max-width:560px}
 .mmrc-opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .mmrc-opt{flex:1;min-width:86px;min-height:64px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:11px;line-height:1.5;padding:9px 8px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center}
@@ -415,15 +393,6 @@ small{font-size:11.5px;color:var(--muted)}
 .pin b{font-size:12.5px}
 .pin p{font-size:11px;margin-top:3px}
 
-/* ---------- CT 并列 ---------- */
-.ct-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:12px}
-.ct-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0;display:flex;flex-direction:column;gap:8px}
-.ct-card .ct-date{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.ct-card .ct-date b{font-size:13.5px}
-.ct-card .ct-col{border-top:1px dashed var(--line);padding-top:7px}
-.ct-card .ct-col span{display:block;font-size:10px;color:var(--muted);letter-spacing:.5px}
-.ct-card .ct-col blockquote{margin:4px 0 0;padding:0;font-size:11.5px;line-height:1.7;color:var(--ink-2);overflow-wrap:anywhere}
-.ct-card .mrc{font-size:10.5px;color:var(--muted)}
 
 /* ---------- 表格 / 列表 ---------- */
 .table-wrap{overflow-x:auto;margin:0 -4px;min-width:0;max-width:100%}
@@ -535,7 +504,6 @@ body.large .subnav button{font-size:14px}
 body.large .chip{font-size:13px}
 body.large .nav-button{font-size:14px}
 body.large .pill{font-size:12px}
-body.large .mol-card p,body.large .ct-card blockquote,body.large .detour-body blockquote{font-size:12.5px}
 body.large .mface .name,body.large .ccard .name{font-size:13.5px}
 
 /* ---------- 响应式（RESPONSIVE-RULES 六条硬规则；断点只有 1180/900/600） ---------- */

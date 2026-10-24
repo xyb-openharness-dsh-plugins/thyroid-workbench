@@ -154,7 +154,7 @@ THY 借鉴点：cervical 的 A（分层只展示医生标签）可直接套 T1�
 | 一图秀 | 16 号 R1–R12 | 三合同 + 单点不连线、治疗条分层、末点避让、minmax(0,1fr) |
 | 3D 指标卡翻转 | 16 §2、19 §4 | data-flipped 唯一开关、固定高度、reduced-motion 降级 |
 | 指标分组 + CTCAE 分级 | 23 号 | 绝对阈值 vs ×ULN（needsUln）；分类卡（TI-RADS/分级）不进趋势 |
-| 私密=数据结构属性 | 26 §4.3、cervical 口径 D | is_private/visibility 列 + 三出口（一图秀/摘要/导出）各过滤、收敛一个函数；THY 加 author_role 双源标签（配偶 FCR≥患者，user-research §8.3） |
+| 私密=数据结构属性 | 26 §4.3、cervical 口径 D | is_private/visibility 列 + 三出口（一图秀/摘要/导出）各过滤、收敛一个函数；THY 加 author_role 双源标签（FCR 双人现象（患者 65.8%>配偶 59.6%，Bian 2024；泛癌种配偶可更高，Wu 2019）【勘误 2026-10-24】，user-research §8.3） |
 | 版本链只增不改 | SCHEMA-SPEC、0001 头注 | 更正=INSERT+翻 is_current；触发器禁改禁删（THY：剂量变更、分层标签变更、TSH 目标变更都是版本链） |
 | 分节标题表化 | cervical `section_titles` | 教训件：不用 subjects 上的 *_title 列 |
 | 设置三区 / 两区导出 / 试验线索卡 / MinerU 管线 | SETTINGS-DESIGN、29 号、18 号 | 拒根/桌面根、Token 三态；fact/view 分区；失败不产候选 |

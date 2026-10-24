@@ -72,3 +72,9 @@
 | 禁词/必现句 | T1/T2/T5/T6 禁词 0；未检测≠阴性、Tg 升高≠复发、零调药建议、sharedOnly 等必现句 6/6 |
 | 窄宽探针 | 8 档宽度（1300/1180/1000/940/900/780/700/600）× 10 一级页：竖排单字 0、横向溢出 0、内容被裁 0；940=AI 面板展开态、900 抽样截图存 docs/shots/dev/ |
 | 截图 | docs/shots/ 共 65 张（32 视图 × 2 档案 + AI 面板展开态） |
+
+
+## 一.5 孤儿页覆盖补全（评审 P1-3 修订，2026-10-24）
+
+7 个二级页原无场景路径经过，已按"场景步骤可跳转"方式全部入径（app.js SCENES 同步）：
+tumor·recurrence←S01；rai·diet←S04；fertility·prep←S04（T7 妊娠红线落点）；followup·bone←S08；fertility·preg←S08（长程语境）；care·symptoms←S02；mind·support←S10。孤儿=0。

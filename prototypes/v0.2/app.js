@@ -76,16 +76,16 @@ const SUBTITLES = {
 
 /* 13 场景直达（INTERACTION-DESIGN v1：S01–S13；HVT X1/X2 的走查锚点） */
 const SCENES = [
-  ['S01', '分层', 'tumor', 'pathology', [['to-molecular', 'tumor', 'molecular'], ['to-reports', 'tumor', 'reports']], '分层摘要'],
-  ['S02', '并发症', 'surgery', 'voice', [['to-calcium', 'surgery', 'calcium'], ['to-op', 'surgery', 'op']], '并发症记录'],
+  ['S01', '分层', 'tumor', 'pathology', [['to-molecular', 'tumor', 'molecular'], ['to-recurrence', 'tumor', 'recurrence'], ['to-reports', 'tumor', 'reports']], '分层摘要'],
+  ['S02', '并发症', 'surgery', 'voice', [['to-calcium', 'surgery', 'calcium'], ['to-op', 'surgery', 'op'], ['to-symptoms', 'care', 'symptoms']], '并发症记录'],
   ['S03', '调药', 'followup', 'dose', [['to-tsh', 'followup', 'tsh']], '剂量时间线'],
-  ['S04', '碘131', 'rai', 'records', [['to-isolation', 'rai', 'isolation'], ['to-wbs', 'rai', 'wbs']], '治疗档案'],
+  ['S04', '碘131', 'rai', 'records', [['to-isolation', 'rai', 'isolation'], ['to-diet', 'rai', 'diet'], ['to-prep', 'fertility', 'prep']], '治疗档案'],
   ['S05', 'Tg', 'followup', 'tg', [['to-tsh', 'followup', 'tsh'], ['to-chart', 'chart', '']], '口径卡'],
   ['S06', '超声', 'followup', 'us', [['to-tg', 'followup', 'tg'], ['to-questions', 'docs', 'prepare']], '并列表'],
   ['S07', '复诊', 'docs', 'prepare', [['to-schedule', 'docs', 'schedule']], '复诊摘要'],
-  ['S08', '随访', 'followup', 'calendar', [['to-tg', 'followup', 'tg'], ['to-us', 'followup', 'us']], '随访节奏'],
+  ['S08', '随访', 'followup', 'calendar', [['to-tg', 'followup', 'tg'], ['to-us', 'followup', 'us'], ['to-bone', 'followup', 'bone'], ['to-preg', 'fertility', 'preg']], '随访节奏'],
   ['S09', '营养', 'care', 'intake', [['to-concerns', 'care', 'concerns']], '语境记录'],
-  ['S10', '遗传', 'mind', 'genetic', [['to-feelings', 'mind', 'feelings']], '医生答复留痕'],
+  ['S10', '遗传', 'mind', 'genetic', [['to-feelings', 'mind', 'feelings'], ['to-support', 'mind', 'support']], '医生答复留痕'],
   ['S11', '试验', 'docs', 'prepare', [['to-library', 'docs', 'library']], '收藏线索'],
   ['S12', '导入', 'docs', 'library', [['to-candidates', 'docs', 'candidates']], '候选核对'],
   ['S13', '康复', 'surgery', 'neck', [['to-op', 'surgery', 'op']], '康复打卡']
