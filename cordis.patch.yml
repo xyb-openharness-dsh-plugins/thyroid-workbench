@@ -1,0 +1,5 @@
+- insert:
+    - id: thyroid-workbench-main
+      name: "@xyb-community/thyroid-workbench"
+      config:
+        root: !!js dshHomePath('thyroid-workbench')

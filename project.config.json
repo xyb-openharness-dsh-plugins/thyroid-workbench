@@ -1,0 +1,18 @@
+{
+  "packageName": "@xyb-community/thyroid-workbench",
+  "title": "甲状腺癌患者工作台",
+  "repository": "https://github.com/xyb-openharness-dsh-plugins/thyroid-workbench",
+  "description": "面向甲状腺癌患者与照护者的本机病程资料、复发风险分层档案、TSH 抑制管理、碘131 治疗档案、颈部超声年度线与终生随访工作台设计项目",
+  "slug": "thyroid-workbench",
+  "layoutMode": "business-first",
+  "businessWidth": 0.65,
+  "targetUsers": "甲状腺癌（乳头状/滤泡状/髓样/未分化）术后患者与照护者双主体；覆盖手术与并发症、碘131 治疗、TSH 抑制管理、终生随访（Tg/超声）、复发评估与照护决策全程；支持代记与私密内容分级",
+  "scenario": "患者与照护者整理手术记录与病理（分型/分期/风险分层）、甲功五项与 Tg/TgAb、左甲状腺素剂量调整、碘131 治疗与隔离记录、颈部超声（TI-RADS 语境）、钙/PTH 与声音症状材料，追踪终生随访节奏，准备复诊问题并回顾医生确认后的记录",
+  "coreFlow": [
+    "选择本地资料目录并导入或登记手术病理、甲功与 Tg、超声、碘治疗与用药材料",
+    "核对风险分层（引用不判定）、Tg/TSH 趋势、碘治疗事件、剂量时间线与并发症记录",
+    "查看长程随访日历与趋势，标记症状与待办，生成复诊摘要与问题清单",
+    "照护者以代记身份记录随访与照护线索，私密内容分级管理，并把明确任务交给 Desktop 原生 Agent 会话"
+  ],
+  "completion": "患者与照护者确认的资料和长程随访时间轴、可追溯的 Tg/TSH 趋势、碘治疗与并发症记录、复诊摘要均保存在明确选择的本机资料目录中；私密内容按 visibility 分级且三处出口过滤"
+}
