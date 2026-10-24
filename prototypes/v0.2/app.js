@@ -184,6 +184,31 @@ function navigate(page, sub) {
 }
 const section = (title, desc = '', action = '') => `<div class="section-title"><div><h2>${title}</h2>${desc ? `<p>${esc(desc)}</p>` : ''}</div>${action}</div>`;
 const backRow = () => state.page === 'dash' ? '' : `<div class="back-row"><button class="text-button" data-action="go" data-page="dash">← 回到看板</button></div>`;
+/* 本页病情上下文（0.2.1）：AI 协助按钮的提示词带着当前档案的关键信息走，患者不用自己复述。
+   字段名以 demo/build-demo-data.mjs 的档案形状为准（rai.courses[].kind/dose/stay、stageLine、CATALOG.TG）。 */
+function aiPromptWithCtx(key) {
+  const base = AI_DEMOS[key]?.prompt || '请基于我的记录给出整理建议。';
+  const ctx = [];
+  try {
+    const p = profile();
+    ctx.push(`档案：${p.name}，${p.age ?? '—'} 岁，${p.diagnosisShort || p.diagnosis || '甲状腺癌术后'}`);
+    if (p.stageLine) ctx.push(`当前阶段：${p.stageLine}`);
+    if (key === 'followup' || key === 'dash' || key === 'chart') {
+      const tg = lastOf('TG');
+      if (tg) ctx.push(`最近 Tg：${tg.v} ng/mL（${tg.d}）`);
+    }
+    if (key === 'rai' && Array.isArray(p.rai?.courses) && p.rai.courses.length) {
+      const c = p.rai.courses[p.rai.courses.length - 1];
+      ctx.push(`最近碘131：${c.kind} ${c.dose}（${c.d}；${c.stay || ''}）`);
+    }
+  } catch { /* 上下文取不到就只发提示词本身 */ }
+  ctx.push('以上来自本机记录（演示数据），判断由我和治疗团队做。');
+  return `${base}\n\n${ctx.join('\n')}`;
+}
+function lastOf(code) {
+  const pts = seriesAll(code);
+  return pts.length ? pts[pts.length - 1] : null;
+}
 const aiBtn = (label = 'AI 协助示例') => btn(label, 'ai-draft', 'soft', `data-ai="${state.page}"`);
 function head(title, desc, action = '') {
   return `<div class="page-head"><div><span class="eyebrow">THYPAL / THYROID WORKBENCH</span><h1>${title}</h1><p>${desc}</p></div><div class="actions">${action}</div></div>`;
@@ -1386,11 +1411,15 @@ const ACTIONS = {
   'agent-hide'() { setAgent(false); toast('已收起面板（会话保留，草稿不丢）'); },
   'ai-draft'(el) {
     const key = el.dataset.ai || state.page;
+    const prompt = aiPromptWithCtx(key);                     // 提示词 + 本页病情上下文（0.2.1）
     state.agent.draft = AI_DEMOS[key] ? key : null;
     if (!state.agent.open) setAgent(true); else renderAgent();
     const input = $('.agent-foot input');
-    if (AI_DEMOS[key] && input) input.value = AI_DEMOS[key].prompt;
-    toast('已把示例提示词填入 AI 面板（待你发送，不会自动发出）');
+    if (AI_DEMOS[key] && input) input.value = prompt;
+    try {
+      parent.postMessage({ type: 'thy:agent-draft', prompt }, location.origin === 'null' ? '*' : location.origin);
+    } catch { /* file:// 老内核 origin 为 null 时退化为页面内演示路径 */ }
+    toast('已把提示词与本页病情信息填入 AI 会话输入框（待你发送，不会自动发出）');
   },
   'cand-ok'() { toast('演示：核对通过后进入事实层（原型仅示意）', { back: true }); },
   'cand-fix'() { toast('演示：进入逐项修改（每项都可以改）'); },
