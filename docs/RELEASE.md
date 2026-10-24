@@ -35,3 +35,13 @@ README/许可证/素材来源/运行依赖/更新说明：...
 | M5 交付 | check 47/47 + audit 37/37（独立复跑）；thyparse TgAb⊂Tg 词边界修复；DEV-PLAN fork 残留勘误 |
 | **UI 加载/业务验证（V2/V3）** | **未验证**——待用户重启 Desktop → 添加小蝶宝 → **先新建会话**（MPM 轮第 6 类教训：宿主按会话授权接口）→ 核心流程走查 |
 | 挂账 | schema/0002（5 新表+补列）**待用户追认**；MTC/ATC 专属模块一期未做 |
+
+## 0.2.1 增量（2026-10-24，用户真机需求）
+
+| 项 | 内容 |
+| --- | --- |
+| 需求 | AI 协助按钮应一键携带「场景提示词 + 关键信息」到 AI 对话窗口，可继续互动 |
+| 实现 | `ai-draft` 按钮 → `aiPromptWithCtx(page)`（场景提示词 + 档案摘要/阶段/Tg/最近 RAI）→ `postMessage(thy:agent-draft)` → 外壳 fillDraft 填入 DSH 原生会话草稿（无会话则 ensureSession 调起后填入）；不自动发送（家族契约） |
+| 同步 | 原型 app.js 与 public/app.js 逐字一致（ui-parity 47/47 过）；0.2.1 已装机 |
+| 数据完整性核查 | bootstrap 键集与原型 demo-data **38=38 逐键一致**、嵌套值 parity deepStrictEqual 全等；DB 各表行数正常（profile 2 / rai 2 / lt4 4 / us 3 / metric 47）；demo2 妊娠线数据完整（fertility: state/cooldown/pregCards/pregNote/postpartum）。此前 `?profile=demo2` 参数形状误读导致的"数据缺失"排除 |
+| 边界说明 | **资料导入（docs·library）UI 仍为静态示意**——MinerU 服务端六部件与设置接口已就绪且 API 实测，页面导入交互完整接线属 M5 后迭代（与 MPM/GBM 同边界，已在遗留清单） |
