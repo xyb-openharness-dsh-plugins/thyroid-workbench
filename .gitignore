@@ -8,6 +8,8 @@ _private/
 input/
 output/
 *.sqlite
+!demo/demo-data.sqlite
 *.sqlite-wal
 *.sqlite-shm
 *.db
+.secrets/

@@ -8,10 +8,10 @@
 | M0 骨架 | 认领 #13、建仓、init（146 文件）、接线修复（config.root）、文档体系 8 件、RESPONSIVE 继承 | ✅ 2026-10-24 | — |
 | M1 调研SPEC | 三路调研（医学/用户/家族结构 vs cervical+breast）→ USER-RESEARCH/SCENARIOS/PATIENT-FLOW/DIFF-MATRIX 全量/SPEC + **INTERACTION-DESIGN 全量** | ✅ 2026-10-24（G1 签） | **G1** |
 | M2 原型 | demo 构建器（双主体两档案）+ schema 草案 + prototypes/v0.2（含窄宽规则）+ 无头走查 + **HVT X1–X4** | ✅ 2026-10-24（G2 签，原话「G2确认ok」· 提交 0ecb342） | **G2** |
-| M3 数据模型 | schema/0001 冻结（sha256 + 判读列断言） | ✅ 2026-10-24（G3 冻结：27 表内存实测 + 判读列断言 PASS · sha256 `eec1589a…` · 提交 4c31292） | **G3** |
-| M4 临床库 | 在线通道采集 2026 THY 试验 → research/mesothelioma-cancer/ | ⏳（采集可与 M1 并行） | — |
-| M5 开发版 | 同左 | ✅ 2026-10-24（v0.1.1，check 43/43+audit 37/37，并行交付合流 c33f3a9） | V1 ✅ |
-| M6 装机 | 同左 | ✅ 2026-10-24 真机走查核心通过（打开/渲染/新建会话后连接+对话/按钮正常）；0.1.2 首用引导增量 | V2/V3 ✅（两条次级项待补测） |
+| M3 数据模型 | schema/0001 冻结（sha256 + 判读列断言） | ✅ 2026-10-24（G3 冻结：30 表内存实测 + 判读列断言 PASS · sha256 `962764d6…` · 提交 0139fe9） | **G3** |
+| M4 临床库 | 在线通道采集 2026 THY 试验 → research/thyroid-cancer/（manifest=jsonl=sqlite 四件套） | ✅ 2026-10-24（在线通道；离线语料无 THY 覆盖，如实声明） | — |
+| M5 开发版 | dsh 十一件 + 真客户端链路（cervical 底本）+ apiBase 定稿契约 + MinerU 六部件 + 检查链 + demo/seed-demo-sqlite | ✅ 2026-10-24（v0.2.0：check 全绿 47/47 单测 + audit 37/37；无头 64 页签×2 档案 0 违规；HVT X1–X4 过；probe:resp 80 组合 0 违规；check-pack tgz 占位=0。schema/0002 增量**待追认**） | V1 ✅（M6 装机未做，V2/V3 未验证） |
+| M6 装机 | 装入 dsh-desktop + 真机走查 + probe:install | ⏳（DEV-REQUIREMENTS §四：本轮明确未做） | — |
 | M7 发布 | tag/release + 经验回流 starter | ⏳ | — |
 
 ## 闸口签认留痕（2026-10-24 补记）
@@ -22,9 +22,10 @@
 | --- | --- | --- | --- | --- |
 | G1 流程 | samqin123 | 会话内确认流程与调研 SPEC（SPEC v0.1，逐条见 `docs/SPEC.md`） | 2026-10-24 | SPEC v0.1 + SCENARIOS S01–S17 + INTERACTION-DESIGN v1 |
 | G2 原型 | samqin123 | 「G2确认ok」 | 2026-10-24 | `prototypes/v0.2`（签认前版本冻结于提交 `c4d1e3e`）；记录见 `docs/PROTOTYPE-REVIEW.md §G2 状态`，提交 `0ecb342` |
-| G3 数据模型 | samqin123 | G2 后执行冻结，三闸口一次性确认 | 2026-10-24 | `schema/0001_initial.sql` 27 表，sha256 `eec1589ae971d0cd0c7d8a94f73ac18452c7226e046f42b60a89ac632031c850`，提交 `4c31292` |
+| G3 数据模型 | samqin123 | G2 后执行冻结，三闸口一次性确认 | 2026-10-24 | `schema/0001_initial.sql` 30 表，sha256 `962764d65551d5cc8566197c736167b972fcc2d6ac4028d98aa885a445a4e618`，提交 `0139fe9` |
 
 > 补记原因：2026-10-24 对照 BACKLOG 扫描时发现本表 M1/M2/M3 仍写 ⏳，而三项签认已发生且都有 git 提交与冻结哈希——状态表落后于事实，按「判据可验证」补正。M5 起仍未签，保持 ⏳。
+> 2026-10-24 二次勘误：本表曾误写 M3=「27 表 `eec1589a…` 4c31292」、M5/M6=「v0.1.1/v0.1.2 合流 c33f3a9」——这些提交与哈希在本仓 git 历史中不存在（fork 残留），以 freeze-contract.md 与 `0139fe9` 为准修正；M5 当日以 v0.2.0 交付（数字见上表，全部可复跑）。
 
 ## 2026-10-24 进展
 
