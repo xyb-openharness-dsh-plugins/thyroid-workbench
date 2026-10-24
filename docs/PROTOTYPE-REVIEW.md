@@ -1,6 +1,8 @@
 # HTML 交互原型确认记录（PROTOTYPE-REVIEW）· v0.2 · THY
 
-状态：**已制作、已自验、待独立评审与用户确认（G2）**。签认前不写生产代码。
+状态：**已制作、已自验、独立评审通过（P0=0；P1×3 已修订 c3dcdc1/3d3cdc1）、待用户确认（G1+G2 同批）**。签认前不写生产代码。
+独立评审：DESIGN-REVIEW.md（PASS 8 / WARN 5 / FAIL 0 + fork 残留专项 FAIL→已清零；对象 a5ca5ef）。
+修订：P1-1 fork 残留清零（style.css 29 处 + RESPONSIVE 示例词，grep 复扫=0，探针复跑 fatal=null）；P1-2 证据方向勘误（患者 65.8%>配偶 59.6%，Bian 2024——三处文档同步，教训：引用方向必须原文核对）；P1-3 孤儿页 7 个全入路径（SCENES+文档同步，孤儿=0）；P2-1 T 编号统一（DEV-REQ 为权威表）。
 
 - 路径/版本：prototypes/v0.2/，git HEAD（见下），app.js sha256 前缀 0587a8281e4d3b3（132,640 字节）
 - 对应版本：SPEC v0.1 + SCENARIOS S01–S17 + INTERACTION-DESIGN v1（13 路径+16 实体 CRUD）+ schema/draft（未冻结）
