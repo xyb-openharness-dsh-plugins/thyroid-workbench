@@ -352,7 +352,7 @@ function chartSVG(t0, t1) {
   const ticks = monthTicks(t0, t1).map((t) => `<line class="axis" x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${CY1}" y2="${CY1 + 5}"/><text class="tick" x="${t.x.toFixed(1)}" y="${CY1 + 18}" text-anchor="middle">${t.label}</text>`).join('');
   const singleNotes = series.filter((s) => !s.m.categorical && s.pts.length === 1).map((s) => `${esc(s.m.name)} 只有 1 点，不连线`).join('；');
   const catNote = series.filter((s) => s.m.categorical).map((s) => `${esc(s.m.name)} 是分类节点，只画点不连线`).join('；');
-  return `<svg viewBox="0 0 ${CW} ${CH}" role="img" aria-label="一图秀：所选指标时间轴">
+  return `<svg class="chart" viewBox="0 0 ${CW} ${CH}" role="img" aria-label="一图秀：所选指标时间轴">
     ${grid}${strip.join('')}${rowLabels}${lines}${ticks}
     <text x="${CX1}" y="${CH - 8}" text-anchor="end" font-size="9.5" fill="#96a5b2">每条线按该指标全部记录范围缩放，不代表不同指标数值可比。</text>
     ${singleNotes ? `<text x="${CX0}" y="${CH - 8}" font-size="9.5" fill="#96a5b2">${esc(singleNotes)}</text>` : ''}

@@ -197,6 +197,7 @@ small{font-size:11.5px;color:var(--muted)}
 .dash-cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:2px}
 .dash-cols .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .stack{display:grid;gap:14px;align-content:start}
+/* 特色状态卡：胸水最近事件 + mMRC 现分级（家族四点位特色位） */
 .duo-status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .duo-status .st{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;min-width:0}
 .duo-status .st span{display:block;font-size:10.5px;color:var(--muted)}
@@ -284,6 +285,7 @@ small{font-size:11.5px;color:var(--muted)}
 .cal-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:9px;font-size:10.5px;color:var(--muted)}
 .cal-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--brand-soft);border:1px solid #bcd2e5;vertical-align:-1px;margin-right:5px}
 
+/* ---------- 胸水与呼吸 ---------- */
 .mmrc-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;max-width:560px}
 .mmrc-opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .mmrc-opt{flex:1;min-width:86px;min-height:64px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:11px;line-height:1.5;padding:9px 8px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center}
@@ -393,6 +395,7 @@ small{font-size:11.5px;color:var(--muted)}
 .pin b{font-size:12.5px}
 .pin p{font-size:11px;margin-top:3px}
 
+/* ---------- CT 并列 ---------- */
 
 /* ---------- 表格 / 列表 ---------- */
 .table-wrap{overflow-x:auto;margin:0 -4px;min-width:0;max-width:100%}
