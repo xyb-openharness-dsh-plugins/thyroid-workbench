@@ -23,3 +23,15 @@ README/许可证/素材来源/运行依赖/更新说明：...
 回滚步骤/数据兼容检查/已知限制：...
 
 工作台市场发布另按 docs/10-MARKET-PUBLISHING.md 执行，附 templates/MARKET-ACCEPTANCE.md 的指定版本手工确认。官方指南复核日期/来源：... 最终安装来源：... 用户确认的项目与执行者：... PR URL/最新提交检查实际执行结果：... 市场目录可见与可安装证据：...。未授权投稿时标不适用，不把 Git push 当市场发布。
+
+## 0.2.0 装机记录（M6 · 2026-10-24）
+
+| 项 | 值 |
+| --- | --- |
+| tgz | `release/xyb-community-thyroid-workbench-0.2.0.tgz`（npm shasum 77d36849…） |
+| 四要素对照（tgz 内容） | H1 dsh 块+repository ✅ / H2 config.root（config:+root: 两行结构）✅ / H3 真客户端 495 行占位=0 ✅ / H4 版本同源 v0.2.0 ✅ |
+| 安装 | `NODE_OPTIONS= corepack pnpm add -w --save-exact file:…0.2.0.tgz`（+1 包） |
+| 五要素 | 装机副本 ver/dsh 块/file 依赖/占位=0/lib.version 同源 ✅ + bundles 登记（乳腺实录约定） |
+| M5 交付 | check 47/47 + audit 37/37（独立复跑）；thyparse TgAb⊂Tg 词边界修复；DEV-PLAN fork 残留勘误 |
+| **UI 加载/业务验证（V2/V3）** | **未验证**——待用户重启 Desktop → 添加小蝶宝 → **先新建会话**（MPM 轮第 6 类教训：宿主按会话授权接口）→ 核心流程走查 |
+| 挂账 | schema/0002（5 新表+补列）**待用户追认**；MTC/ATC 专属模块一期未做 |
