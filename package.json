@@ -47,7 +47,8 @@
     "start": "node --disable-warning=ExperimentalWarning scripts/dev-server.mjs",
     "dev": "node --disable-warning=ExperimentalWarning scripts/dev-server.mjs",
     "probe:headless": "node --disable-warning=ExperimentalWarning scripts/probe-headless.mjs",
-    "probe:install": "node scripts/probe-install.mjs"
+    "probe:install": "node scripts/probe-install.mjs",
+    "probe:primer": "node scripts/probe-disease-primer.mjs"
   },
   "dsh": {
     "bundle": {
