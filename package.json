@@ -1,6 +1,6 @@
 {
   "name": "@xyb-community/thyroid-workbench",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "面向甲状腺癌患者与照护者的本机病程资料、病理与 ATA 分层档案（只引用不判定）、碘131 治疗档案、TSH 抑制剂量时间线、颈部超声并列与终生随访工作台设计项目",
   "private": true,
   "type": "module",
