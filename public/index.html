@@ -4,15 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>小蝶宝 ThyPal · 甲状腺癌工作台 v0.2.1</title>
+<title>小蝶宝 ThyPal · 甲状腺癌工作台 v0.2.2</title>
 <!-- 内联 favicon：原型是 file:// 或单目录静态托管，不给 favicon.ico 会在控制台留一条 404 -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232A7F8C'/%3E%3Ctext x='16' y='23' font-size='19' font-family='PingFang SC,Helvetica,sans-serif' font-weight='700' fill='%23fff' text-anchor='middle'%3E%E8%9D%B6%3C/text%3E%3C/svg%3E">
 <meta name="description" content="甲状腺癌（THY）患者与照护者工作台开发版。演示数据，全部为模拟资料。">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="primer.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到主要内容</a>
-<div class="prototype-bar"><span><b>交互原型 v0.2.1</b> · 全部为模拟资料</span><span>仅本页演示 · 刷新重置 · 未接入 DSH / AI</span></div>
+<div class="prototype-bar"><span><b>交互原型 v0.2.2</b> · 全部为模拟资料</span><span>仅本页演示 · 刷新重置 · 未接入 DSH / AI</span></div>
 <div class="workspace">
   <aside class="sidebar" aria-label="小蝶宝业务导航">
     <div class="brand"><span class="brand-mark" aria-hidden="true">
@@ -35,11 +36,12 @@
           <button data-action="settings" aria-label="打开设置：工作区目录、文档解析、临床数据包">设置</button>
           <button id="font-toggle" aria-pressed="false" title="切换大字">大字 Aa</button>
           <button id="agent-toggle" data-action="agent-toggle" aria-expanded="false" aria-controls="agent-pane">AI 对话</button>
-          <button class="ver-chip" id="ver-chip" data-action="about" aria-label="关于小蝶宝：查看版本号与构建信息">v0.2.1</button>
+          <button data-primer-open aria-haspopup="dialog" aria-label="疾病概要：定义、医学资料与指南情况、治疗全景、发展趋势" title="疾病概要：定义 · 指南 · 治疗全景 · 趋势">?</button>
+          <button class="ver-chip" id="ver-chip" data-action="about" aria-label="关于小蝶宝：查看版本号与构建信息">v0.2.2</button>
         </div>
       </header>
       <main id="main" tabindex="-1"></main>
-      <footer class="footer">小蝶宝 ThyPal · 与甲状腺癌患者和照护者一起整理、记录、准备沟通 · 判读归内分泌与头颈外科团队 <span class="ver-line"><b id="app-version">v0.2.1</b><em id="app-build">2026-10-24</em></span></footer>
+      <footer class="footer">小蝶宝 ThyPal · 与甲状腺癌患者和照护者一起整理、记录、准备沟通 · 判读归内分泌与头颈外科团队 <span class="ver-line"><b id="app-version">v0.2.2</b><em id="app-build">2026-10-24</em></span></footer>
     </div>
     <div id="agent-splitter" role="separator" aria-orientation="vertical" aria-label="调整 AI 对话面板宽度（左右方向键步进）" aria-valuemin="25" aria-valuemax="45" aria-valuenow="35" tabindex="0" hidden></div>
     <aside id="agent-pane" aria-label="AI 对话面板" hidden>
@@ -64,5 +66,7 @@
 </dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="demo-data.js"></script>
+<script src="primer-data.js"></script>
+<script src="primer.js"></script>
 <script src="app.js"></script>
 </body></html>

@@ -586,3 +586,16 @@ body.large .mface .name,body.large .ccard .name{font-size:13.5px}
 .cfg-stat b{font-size:15px}
 .cfg-stat span{font-size:11px;color:var(--muted)}
 .md-preview{background:#f7fafb;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;font:11.5px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:340px;overflow:auto;margin:10px 0 0}
+
+/* 36 号 §2.6 看板状态卡：卡头 eyebrow / 锚点派生大字天数 / 现状行 / 出口按钮排 */
+.status-card{background:var(--brand-soft);border:1px solid #cfe3e6;border-radius:13px;padding:14px 16px;margin-bottom:16px}
+.status-head{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.status-anchor{font-size:11.5px;color:var(--muted);overflow-wrap:anywhere}
+.status-body{display:flex;gap:20px;align-items:flex-start;margin:9px 0 11px;flex-wrap:wrap}
+.status-day{min-width:160px;flex:0 0 auto}
+.status-day b{display:block;font-size:28px;line-height:1.15;color:var(--brand-deep);font-weight:700;letter-spacing:.5px}
+.status-day small{font-size:11.5px;color:var(--muted)}
+.status-facts{flex:1 1 320px;min-width:0;display:grid;gap:4px}
+.status-facts p{margin:0;font-size:12.5px;line-height:1.55;overflow-wrap:anywhere}
+.status-facts p span{display:inline-block;min-width:44px;margin-right:6px;color:var(--muted);font-size:11.5px;font-weight:600}
+.status-card .actions{display:flex;gap:8px;flex-wrap:wrap;margin:0}

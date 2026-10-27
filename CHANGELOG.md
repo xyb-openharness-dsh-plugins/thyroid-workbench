@@ -1,5 +1,26 @@
 # 变更记录
 
+## 0.2.2 — 2026-10-27（36 号疾病概要补齐开发版：顶栏「?」+ 看板状态卡）
+
+原型侧的 36 号改造（primer v2、指南原件可点、D+N 状态卡）此前只在 `prototypes/v0.2/` 里，开发版一行没接，
+用户装上的工作台**根本没有疾病概要入口**。这一版把开发版补齐。
+
+- **primer 三件套进 `public/`**：`primer.js` / `primer.css` / `primer-data.js` 与原型同源（含 `safeHref` 只放行 `https://`、
+  `.dp-miss` 缺链红标）；`index.html` 加 `primer.css` 与两个 script。
+- **顶栏「?」手写**：`primer.js` 的 `mount()` 是「DOM 里已有 `[data-primer-open]` 就接管、没有才插」，而看板状态卡的出口按钮排里
+  本来就有同名按钮、`app.js` 又先渲染完看板 —— 自动挂载会去接管那一颗，顶栏永远是空的，而 P1 仍会 PASS（`querySelector`
+  拿到的是状态卡按钮，这是个假绿）。改为在 `.top-actions` 手写一颗。⚠️ 按钮那行**必须与原型逐字符一致**，多写
+  `aria-controls` / `aria-expanded` 会被 ui-parity 的第 ⑥ 条断言判红（`mount()` 自己会补齐）。
+- **看板首卡换成 §2.6 状态卡**：卡头（`D+N 状态卡 · 距下次随访…`）/ 大字天数 / 现状行（阶段·状态·下次）/ 出口按钮排。
+  天数由锚点日（手术日 2024-10-18）派生，实测 **D+736**、距下次随访 14 天，不手填；副按钮接疾病概要。
+  `style.css` 补同一段 `.status-card`，与原型同块。
+- **版本** 0.2.1 → **0.2.2**（`VERSION` / `package.json` / `lib/version.js` / `lib/client.js` / `public/index.html` /
+  `public/app.js` 一致；渠道仍 `beta`）。
+- **验证**：`npm run check` **47/47 全绿**（含 ui-parity ⑥「index.html 只差 title/版本号/favicon/noindex」）；
+  开发版探针 **10/10**（P1–P9 + E0）；疾病概要内 19 条可点链接、零 `.dp-miss` 红标、指南表 8 行。
+- **装机**：Desktop profile web 换到 0.2.2 tgz，bundles 43 → 43、38 项依赖 0 缺失；装机副本
+  `public/primer.js` / `index.html` / `app.js` 与仓库 sha256 全一致。**需重启 DSH Desktop 才会加载。**
+
 只增不删；每条写清"改了什么 + 为什么 + 用户可见结果"。版本号与 VERSION、package.json 三处必须一致。
 
 ## 0.2.0 — 2026-10-24（M5 开发版）

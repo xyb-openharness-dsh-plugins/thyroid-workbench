@@ -90,7 +90,13 @@
 - [x] `prototypes/v0.2/primer.js`（从 `assets/patterns/disease-primer.js` 逐字节复制，未改逻辑）
 - [x] `prototypes/v0.2/primer-data.js`（本文件四段转成 `window.DISEASE_PRIMER`）
 - [x] `index.html` 三处引用：`<link rel="stylesheet" href="primer.css">` / `<script src="primer-data.js">` / `<script src="primer.js">`
-- [x] 顶栏出现「?」：模块自动插进 `.top-actions`，本项目 app.js 的 hash 路由对未知 hash 直接 return，无需改页面逻辑
+- [x] 顶栏「?」**手写在 `.top-actions`**（2026-10-27 改）：模块的 `mount()` 是「DOM 里已有 `[data-primer-open]` 就接管、没有才插」，
+      而看板状态卡的出口按钮排里本来就有同名按钮、`app.js` 又先渲染完看板 —— 自动挂载会去接管那一颗，顶栏就永远空着，
+      且 P1 照样 PASS（`querySelector` 拿到的是状态卡按钮）。这条对所有项目都会复现。
+- [x] 看板首卡是 36 号 §2.6 状态卡（卡头 / 大字天数 / 现状行 / 出口按钮排），天数由锚点日（手术日）派生，不手填
+- [x] **开发版 `public/` 已接入**（v0.2.2，2026-10-27）：`primer.js` / `primer.css` / `primer-data.js` 与原型同源；
+      `index.html` 三处引用 + 顶栏手写「?」；`app.js` 的 `pageDash` 搬入同一份状态卡并置于首卡位；`style.css` 补同一段 `.status-card`。
+      `npm run check` 47/47、开发版探针 10/10
 - [x] README 的 `## 疾病概要` 四段正文写好，小标题与数据文件一致
 - [x] `node scripts/probe-disease-primer.mjs --port 8131 --url http://127.0.0.1:8131/prototypes/v0.2/index.html` 9/9 全绿；`--self-test` 3 条 FAIL
 
@@ -114,3 +120,4 @@
 1. **卫健委原文那一档最高强度词，不能原样搬进概览。** 2022 版对高危人群的碘-131 用了最高一档的推荐强度词，而趋势段禁止词表里有这一条；最后写成「高危列入推荐、中危可考虑、低危不推荐」，保住适应证分层的三段结构，去掉强度词。同理，复发路径原文里那句路径排序词也没搬。
 2. **微小癌最容易写滑。** 指南自己写「致死率几乎为 0」，如果只抄前半句，等于替医生给了一颗定心丸；现在把同段后半句「微小癌并不都是复发风险低的肿瘤」并排放在一起，两句话互相约束。
 3. **ATA 2025 只有摘要，不能拿它当「最新指南」用。** 项目里 ATA 2025 是摘要级（PMID 40844370），只能核到动态反应分层的类别名；数据文件里凡涉及 ATA 2025 的判定细则都停在「未取得全文 / 页码待核」，不写阈值。C-TIRADS 的恶性风险百分比同理，正文一个数字都没有。
+4. **开发版接入时，`index.html` 要与原型逐字符一致（ui-parity 的 ⑥ 号断言）。** 我按「更完整」的写法给顶栏按钮加了 `class="dp-trigger"` + `aria-controls` + `aria-expanded`，还换了一版更长的 `aria-label`，结果 parity 直接判红。正确做法是照抄原型那行——`mount()` 自己会补齐 `aria-controls` / `aria-expanded`，不劳页面写。反之，若确需改骨架，就同步改原型，两边一起动。

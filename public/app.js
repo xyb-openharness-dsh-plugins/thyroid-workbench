@@ -43,7 +43,7 @@ function lastOf(code) {
    未检测 ≠ 阴性（虚线徽章+常驻句）；分类节点（分层/TI-RADS）只画节点不连线。 */
 
 const APP_INFO = {
-  version: '0.2.1',
+  version: '0.2.2',
   build: '2026-10-24',
   channel: 'dsh',
   channelLabel: '开发版 · 已连接工作台数据',
@@ -587,7 +587,33 @@ function pageDash() {
       <span class="entry-icon">${g}</span><b>${esc(t2)}</b><span>${esc(d)}</span><span class="arrow">→</span></button>`).join('')}</div></div>`;
   const numericSel = state.sel[state.profileId].filter((c) => !CATALOG[c].categorical).slice(0, 2);
   const catSel = state.sel[state.profileId].find((c) => CATALOG[c].categorical);
+  /* 36 号 §2.6 状态卡：天数一律由锚点日（手术日 Day 0）派生，不手填；无锚点显示「待初始化」。 */
+  const anchorDate = /^\d{4}-\d{2}-\d{2}$/.test(p.pathology?.opDate || '') ? p.pathology.opDate : '';
+  const dayN = anchorDate ? Math.max(0, Math.floor((Date.parse(TODAY) - Date.parse(anchorDate)) / DAY)) : null;
+  const nextGap = nextVisit && /\d{4}-\d{2}-\d{2}/.test(nextVisit.d) ? daysBetween(TODAY, nextVisit.d) : null;
+  const statusCard = `<div class="status-card" data-product="D+N 状态卡">
+      <div class="status-head">
+        <span class="eyebrow">${dayN === null ? 'D+? 状态卡' : `D+${dayN} 状态卡`} · 距下次随访${nextGap === null ? '（待医院通知）' : ` ${nextGap} 天`}</span>
+        <span class="status-anchor">${anchorDate ? `锚点日（手术日）${anchorDate}` : '缺锚点日：补上手术日后天数自动派生'} · ${esc(p.diagnosis)} · ${p.age} 岁 · 演示数据</span>
+      </div>
+      <div class="status-body">
+        <div class="status-day">
+          <b>${dayN === null ? '待初始化' : `第 ${dayN} 天`}</b>
+          <small>${dayN === null ? '指向三步初始化：先补手术日' : '术后天数 · 由锚点日派生'}</small>
+        </div>
+        <div class="status-facts">
+          <p><span>阶段</span>${esc(p.stageLine)}</p>
+          <p><span>状态</span>${nextVisit ? '随访已排期（按随访日历）' : '待医院通知（未排下次）'}</p>
+          <p><span>下次</span>${nextVisit ? `${esc(nextVisit.d)}（${esc(nextVisit.item)}）` : '待医院通知'}</p>
+        </div>
+      </div>
+      <div class="actions">
+        ${dayN === null ? go('去补手术日（三步初始化）→', 'surgery', 'op', 'primary') : go('看随访日历（按天）→', 'followup', 'calendar', 'primary')}
+        <button type="button" class="soft" data-primer-open aria-label="疾病概要：甲状腺癌是什么？打开定义、指南、治疗全景与趋势四段">疾病概要：甲状腺癌是什么？</button>
+      </div>
+    </div>`;
   return `${head('看板', SUBTITLES.dash, aiBtn())}
+    ${statusCard}
     <div class="stage-strip"><span class="eyebrow">当前阶段 · 引用医生语境</span><b>${esc(p.stageLine)}</b><small>${esc(p.diagnosis)} · ${p.age} 岁 · 演示数据</small></div>
     <div class="duo">${duo(`本人 · 现在可以做（${p.gender === '女' ? '她' : '他'}主导）`, 'self', selfEntries)}${duo(`照护者 · 现在可以做（${p.caregiverLabel}）`, 'care', careEntries)}</div>
     <div class="scene-strip" aria-label="13 个场景直达（演示导航）"><span class="lab">场景直达：</span>${SCENES.map(([k, n]) => `<button class="scene-chip" data-action="scene" data-scene="${k}" aria-label="场景 ${k} ${n}">${k} ${n}</button>`).join('')}</div>
