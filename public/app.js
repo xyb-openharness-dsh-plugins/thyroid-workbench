@@ -43,7 +43,7 @@ function lastOf(code) {
    未检测 ≠ 阴性（虚线徽章+常驻句）；分类节点（分层/TI-RADS）只画节点不连线。 */
 
 const APP_INFO = {
-  version: '0.2.3',
+  version: '0.2.4',
   build: '2026-10-24',
   channel: 'dsh',
   channelLabel: '开发版 · 已连接工作台数据',
