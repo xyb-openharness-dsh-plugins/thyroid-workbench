@@ -17,7 +17,14 @@
 - **版本** 0.2.1 → **0.2.2**（`VERSION` / `package.json` / `lib/version.js` / `lib/client.js` / `public/index.html` /
   `public/app.js` 一致；渠道仍 `beta`）。
 - **验证**：`npm run check` **47/47 全绿**（含 ui-parity ⑥「index.html 只差 title/版本号/favicon/noindex」）；
-  开发版探针 **10/10**（P1–P9 + E0）；疾病概要内 19 条可点链接、零 `.dp-miss` 红标、指南表 8 行。
+  开发版探针 **10/10**（P1–P9 + E0）；疾病概要内 19 处可点链接、4 处 `nolink` 已标注原因、指南表 7 行。
+- **原件链接落到 PDF 直链（同日复核）**：卫健委两条原件从通知页改为官方 PDF 直链
+  （《甲状腺癌诊疗指南（2022 年版）》65 页 / 《新型抗肿瘤药物临床应用指导原则（2024 年版）》439 页）。
+  通知页对无头浏览器返回 HTTP 412 风控，PDF 直链 HTTP 200；`verify-links.mjs` 因 PDF 无 DOM 文本判
+  `THIN`（非不可达），已下载并用 pypdf 抽取正文核对标题与关键词（达拉非尼 / 曲美替尼）。
+- **排版修复 §4.3**：`primer.css` 重新取自 starter（去掉正文与列表的 `max-width:68ch`、分组列表缩进 20px、
+  表格 `min-width:640px` 窄容器横向滚动），`prototypes/v0.2/primer.css` 与 `public/primer.css` 两份同源。
+- **检查链**：`npm run check` 末尾追加 `node scripts/check-primer-links.mjs`（L1–L6 共 23 项断言）。
 - **装机**：Desktop profile web 换到 0.2.2 tgz，bundles 43 → 43、38 项依赖 0 缺失；装机副本
   `public/primer.js` / `index.html` / `app.js` 与仓库 sha256 全一致。**需重启 DSH Desktop 才会加载。**
 

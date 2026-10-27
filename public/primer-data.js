@@ -22,8 +22,8 @@ window.DISEASE_PRIMER = {
         '本台不判断结节良恶性，也不替任何人决定是否手术；判读归超声科、病理科与外科。'
       ],
       sources: [
-        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930.shtml', page: 'p9、p14–p15、p25–p29' },
-        { org: '中华医学会内分泌学分会等 7 学会', doc: '甲状腺结节和分化型甲状腺癌诊治指南（第二版）', version: '2023', original: false, secondaryUrl: 'https://rs.yiigle.com/cmaid/1451011', page: '页码待核', note: 'C-TIRADS 出处；原件 PDF 未存档，二次来源为中华医学期刊网条目页' },
+        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930/files/1732863055520_88237.pdf', page: 'p9、p14–p15、p25–p29' },
+        { org: '中华医学会内分泌学分会等 7 学会', doc: '甲状腺结节和分化型甲状腺癌诊治指南（第二版）', version: '2023', original: false, secondaryUrl: 'https://cmab.yiigle.com/uploads/guide_html/%E7%94%B2%E7%8A%B6%E8%85%BA%E7%BB%93%E8%8A%82%E5%92%8C%E5%88%86%E5%8C%96%E5%9E%8B%E7%94%B2%E7%8A%B6%E8%85%BA%E7%99%8C%E8%AF%8A%E6%B2%BB%E6%8C%87%E5%8D%97.html', page: '页码待核', note: 'C-TIRADS 出处；原件 PDF 未存档，二次来源为中华医学期刊网全文页' },
         { org: 'AJCC', doc: 'AJCC Cancer Staging Manual', version: '第 8 版（2017）', original: false, secondaryUrl: 'https://www.facs.org/quality-programs/cancer-programs/american-joint-committee-on-cancer/cancer-staging-systems/', page: '页码待核', note: '本项目经指南二次引用；链接为 AJCC 官方分期体系页' }
       ]
     },
@@ -34,13 +34,13 @@ window.DISEASE_PRIMER = {
       table: {
         head: ['机构', '文件', '版本 / 日期', '原件', '本台的用途'],
         rows: [
-          ['国家卫生健康委员会', '甲状腺癌诊疗指南（2022 年版）', '2022-04-11', { text: '已取得全文（PDF）', url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930.shtml' }, 'TI-RADS、Bethesda、手术范围、风险分层、TSH 目标、碘-131 适应证、复发路径'],
-          ['中华医学会内分泌学分会等 7 学会', '甲状腺结节和分化型甲状腺癌诊治指南（第二版）', '2023', { text: '未取得原件，据中华医学期刊网条目页', url: 'https://rs.yiigle.com/cmaid/1451011' }, 'C-TIRADS 的出处，各类恶性风险数字待核验'],
+          ['国家卫生健康委员会', '甲状腺癌诊疗指南（2022 年版）', '2022-04-11', { text: '已取得全文（PDF）', url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930/files/1732863055520_88237.pdf' }, 'TI-RADS、Bethesda、手术范围、风险分层、TSH 目标、碘-131 适应证、复发路径'],
+          ['中华医学会内分泌学分会等 7 学会', '甲状腺结节和分化型甲状腺癌诊治指南（第二版）', '2023', { text: '未取得原件，据中华医学期刊网全文页', url: 'https://cmab.yiigle.com/uploads/guide_html/%E7%94%B2%E7%8A%B6%E8%85%BA%E7%BB%93%E8%8A%82%E5%92%8C%E5%88%86%E5%8C%96%E5%9E%8B%E7%94%B2%E7%8A%B6%E8%85%BA%E7%99%8C%E8%AF%8A%E6%B2%BB%E6%8C%87%E5%8D%97.html' }, 'C-TIRADS 的出处，各类恶性风险数字待核验'],
           ['CSCO', '分化型甲状腺癌诊疗指南（2021）／2025 指南会更新要点', '2021／2025-04', { text: '未取得全文', nolink: true, note: 'CSCO 指南以纸质书与订购渠道发行，官网无公开全文；未取得可核验链接' }, '仅记存在；TSH 抑制「双风险模型」的更新要点来自会议报道，待核验'],
           ['中国抗癌协会（CACA）', '中国肿瘤整合诊治指南—甲状腺癌 V2.0', '2025-07', { text: '未取得全文（仅见官方目录页）', url: 'https://cacaguidelines.cacakp.com/pdflist?guide_id=1007' }, '仅记存在'],
           ['美国甲状腺协会（ATA）', '2025 Management Guidelines for Adult Patients with Differentiated Thyroid Cancer', '2025（PMID 40844370）', { text: '未取得全文（摘要级）', url: 'https://www.thyroid.org/professionals/ata-professional-guidelines/' }, '动态反应分层类别名'],
           ['NCCN', 'NCCN Guidelines: Thyroid Carcinoma', 'v1.2025（2025-03）', { text: '未取得（登录墙）', url: 'https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1470' }, '髓样癌与嗜酸细胞癌的范围参照'],
-          ['国家卫生健康委员会', '新型抗肿瘤药物临床应用指导原则（2024 年版）', '2025-01', { text: '已见关键原文（PDF）', url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1.shtml' }, '判断「中国获批 / 未获批」的边界（如达拉非尼+曲美替尼的 ATC 适应症）']
+          ['国家卫生健康委员会', '新型抗肿瘤药物临床应用指导原则（2024 年版）', '2025-01', { text: '已见关键原文（PDF）', url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1/files/1743410143517_48637.pdf' }, '判断「中国获批 / 未获批」的边界（如达拉非尼+曲美替尼的 ATC 适应症）']
         ]
       },
       points: [
@@ -49,10 +49,10 @@ window.DISEASE_PRIMER = {
         'NCCN v1.2025 全文未取得，本台只把它当范围参照，不引条文。'
       ],
       sources: [
-        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930.shtml', page: '全文（本地 PDF）' },
+        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930/files/1732863055520_88237.pdf', page: '全文（本地 PDF）' },
         { org: '美国甲状腺协会（ATA）', doc: '2025 ATA DTC Guidelines（Ringel MD 等，Thyroid）', version: '2025', original: false, secondaryUrl: 'https://www.thyroid.org/professionals/ata-professional-guidelines/', page: '页码待核', note: '摘要级，PMID 40844370；二次来源为 ATA 官方指南列表页' },
         { org: 'NCCN', doc: 'NCCN Guidelines: Thyroid Carcinoma', version: 'v1.2025', original: false, secondaryUrl: 'https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1470', page: '页码待核', note: '登录墙，全文未取得；二次来源为 NCCN 指南详情页' },
-        { org: '国家卫生健康委员会', doc: '新型抗肿瘤药物临床应用指导原则（2024 年版）', version: '2025-01', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1.shtml', page: '页码待核' }
+        { org: '国家卫生健康委员会', doc: '新型抗肿瘤药物临床应用指导原则（2024 年版）', version: '2025-01', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1/files/1743410143517_48637.pdf', page: '页码待核' }
       ]
     },
     {
@@ -103,8 +103,8 @@ window.DISEASE_PRIMER = {
         '以上是文献与指南里列出的手段，按病期与线序排列，不代表任何一项适合你。选哪一个，这一句需要问你的医生。'
       ],
       sources: [
-        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930.shtml', page: 'p28–p47、p61–p64' },
-        { org: '国家卫生健康委员会', doc: '新型抗肿瘤药物临床应用指导原则（2024 年版）', version: '2025-01', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1.shtml', page: '页码待核' },
+        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930/files/1732863055520_88237.pdf', page: 'p28–p47、p61–p64' },
+        { org: '国家卫生健康委员会', doc: '新型抗肿瘤药物临床应用指导原则（2024 年版）', version: '2025-01', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1/files/1743410143517_48637.pdf', page: '页码待核' },
         { org: '国家医疗保障局', doc: '碘难治型分化型甲状腺癌谈判资料（PPT）', version: '2022', original: true, nolink: true, page: '不适用', note: '本台自存的谈判资料 PPT，无公开可核验 URL（仅内部资料，未上网）' },
         { org: '行业媒体与公司公告', doc: '仑伐替尼 / 安罗替尼 / 多纳非尼 / 塞普替尼获批时间报道', version: '2020–2022', original: false, nolink: true, page: '页码待核', note: '未核到 NMPA 官方批件页；媒体报道链接需登录或不稳定，未取得可核验链接' }
       ]
@@ -123,8 +123,8 @@ window.DISEASE_PRIMER = {
       sources: [
         { org: '美国甲状腺协会（ATA）', doc: '2025 ATA DTC Guidelines（Thyroid）', version: '2025', original: false, secondaryUrl: 'https://www.thyroid.org/professionals/ata-professional-guidelines/', page: '页码待核', note: '摘要级，PMID 40844370' },
         { org: 'NCCN', doc: 'NCCN Guidelines: Thyroid Carcinoma', version: 'v1.2025', original: false, secondaryUrl: 'https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1470', page: '页码待核', note: '全文未取得；二次来源为 NCCN 指南详情页' },
-        { org: '国家卫生健康委员会', doc: '新型抗肿瘤药物临床应用指导原则（2024 年版）', version: '2025-01', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1.shtml', page: '页码待核' },
-        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930.shtml', page: '表 1（TI-RADS）、p28–p47' },
+        { org: '国家卫生健康委员会', doc: '新型抗肿瘤药物临床应用指导原则（2024 年版）', version: '2025-01', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202501/4b86cb63eb03400eb789f371316ecea1/files/1743410143517_48637.pdf', page: '页码待核' },
+        { org: '国家卫生健康委员会', doc: '甲状腺癌诊疗指南（2022 年版）', version: '2022-04-11', original: true, url: 'https://www.nhc.gov.cn/yzygj/c100068/202204/0c1f7d3aca0545abbeb02030ce255930/files/1732863055520_88237.pdf', page: '表 1（TI-RADS）、p28–p47' },
         { org: '本项目登记快照', doc: 'research/thyroid-cancer/manifest.json（unified-trial-mcp）', version: '2026-10-24', original: true, nolink: true, page: '不适用', note: '自采快照；快照文件在仓内 research/thyroid-cancer/manifest.json，无公开 URL（202 条去重，阶段字段未采集）' }
       ]
     }

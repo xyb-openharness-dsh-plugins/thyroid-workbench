@@ -25,7 +25,7 @@
     "NOTICE.md"
   ],
   "scripts": {
-    "check": "THY_CHANNEL=beta node scripts/build-version.mjs && node --disable-warning=ExperimentalWarning demo/build-demo-data.mjs && node scripts/build-client.mjs --check && node scripts/check-version.mjs && node scripts/check-syntax.mjs && node scripts/check-schema.mjs && node scripts/check-wording.mjs && node scripts/check-demo-columns.mjs && node --disable-warning=ExperimentalWarning --test test/*.test.mjs && node scripts/check-workbench-package.mjs .",
+    "check": "THY_CHANNEL=beta node scripts/build-version.mjs && node --disable-warning=ExperimentalWarning demo/build-demo-data.mjs && node scripts/build-client.mjs --check && node scripts/check-version.mjs && node scripts/check-syntax.mjs && node scripts/check-schema.mjs && node scripts/check-wording.mjs && node scripts/check-demo-columns.mjs && node --disable-warning=ExperimentalWarning --test test/*.test.mjs && node scripts/check-workbench-package.mjs . && node scripts/check-primer-links.mjs",
     "audit": "node scripts/check-conformance.mjs .",
     "build:version": "THY_CHANNEL=beta node scripts/build-version.mjs",
     "check:version": "node scripts/check-version.mjs",
